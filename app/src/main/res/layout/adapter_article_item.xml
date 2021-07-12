@@ -52,6 +52,7 @@
                 android:text="@{item.title}"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/txtHeaderColor"
                 app:layout_constraintStart_toEndOf="@+id/thumbnail"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,10 +61,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:ellipsize="end"
-                android:text="@{item.abstract}"
+                android:layout_marginLeft="10dp"
+                android:text="@{item.byline}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/title"
+                android:textColor="@color/txtSubHeaderColor"
+                app:layout_constraintStart_toEndOf="@+id/thumbnail"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <TextView
@@ -71,11 +73,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:layout_marginLeft="6dp"
                 android:drawableLeft="@android:drawable/ic_menu_my_calendar"
-                android:drawablePadding="4dp"
+                android:textColor="@color/txtSubHeaderColor"
                 android:gravity="center_vertical"
                 android:text="@{item.publishedDate}"
-                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintStart_toEndOf="@+id/thumbnail"
                 app:layout_constraintTop_toBottomOf="@+id/subtitle" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
