@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rg.nytimes.activity.mainscreen.ArticleListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_articles_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_no_articles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_main_margin"
+            android:gravity="center"
+            android:text="No item available"
+            android:visibility="@{viewModel.getArticlesListAdapter().itemCount==0? View.GONE : View.GONE}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_articles_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:visibility="@{viewModel.getArticlesListAdapter().itemCount>0? View.VISIBLE : View.VISIBLE}"
+            android:divider="@color/colorLightGray"
+            app:setAdapter="@{viewModel.getArticlesListAdapter()}"
+            tools:listitem="@layout/adapter_article_item" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/cv_progress_bar"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

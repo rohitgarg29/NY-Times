@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NY Times</string>
+    <string name="thumbnail_desc">Article thumbnail</string>
+</resources>
